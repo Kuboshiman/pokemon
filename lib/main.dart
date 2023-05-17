@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'poke_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,45 +11,40 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(children: [
-                Container(
-                  padding: const EdgeInsets.all(30),
-                  child: Image.network(
-                    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text(
-                    'No.25',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ]),
-              const Text(
-                'pikachu',
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-              ),
-              const Chip(
-                label: Text('electric'),
-                backgroundColor: Colors.yellow,
-              ),
-            ],
+      home: TopPage(),
+    );
+  }
+}
+
+class TopPage extends StatelessWidget {
+  const TopPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: PikaButton(),
+      ),
+    );
+  }
+}
+
+class PikaButton extends StatelessWidget {
+  const PikaButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: const Text('detail'),
+      onPressed: () => {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) => const PokeDetail(),
           ),
         ),
-      ),
+      },
     );
   }
 }
