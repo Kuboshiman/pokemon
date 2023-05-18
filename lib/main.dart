@@ -12,9 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: TopPage(),
+    return MaterialApp(
+      title: 'Pokemon Flutter',
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      home: const TopPage(),
     );
   }
 }

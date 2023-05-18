@@ -34,8 +34,16 @@ class PokeDetail extends StatelessWidget {
               'pikachu',
               style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             ),
-            const Chip(
-              label: Text('electric'),
+            Chip(
+              label: Text(
+                'electric',
+                style: TextStyle(
+                  color: ThemeData.estimateBrightnessForColor(Colors.yellow) ==
+                          Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                ),
+              ),
               backgroundColor: Colors.yellow,
             ),
           ],
@@ -83,8 +91,10 @@ class MyApp extends StatelessWidget {
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
               ),
               const Chip(
-                label: Text('electric'),
                 backgroundColor: Colors.yellow,
+                label: Text(
+                  'electric',
+                ),
               ),
             ],
           ),
