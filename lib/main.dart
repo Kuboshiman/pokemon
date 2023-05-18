@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'poke_list_item.dart';
-import 'poke_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,25 +30,6 @@ class TopPage extends StatelessWidget {
         itemCount: 100,
         itemBuilder: (context, index) => PokeListItem(index: index),
       ),
-    );
-  }
-}
-
-class PikaButton extends StatelessWidget {
-  const PikaButton({Key? key, required this.index}) : super(key: key);
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: const Text('detail'),
-      onPressed: () => {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (BuildContext context) => const PokeDetail(),
-          ),
-        ),
-      },
     );
   }
 }
