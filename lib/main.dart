@@ -20,8 +20,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class TopPage extends StatelessWidget {
+class TopPage extends StatefulWidget {
   const TopPage({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _TopPageState createState() => _TopPageState();
+}
+
+class _TopPageState extends State<TopPage> {
+  int currentbnb = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +41,11 @@ class TopPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) => {},
+        onTap: (index) => {
+          setState(
+            () => currentbnb = index,
+          )
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
